@@ -10,3 +10,10 @@ generator client {
 datasource db {
   provider = "mysql"
 }
+
+model Activity {
+  id            Int       @id       @default(autoincrement())
+  name          String
+  createdAt     DateTime                @default(now())
+  updatedAr     DateTime  @updatedAt
+}
