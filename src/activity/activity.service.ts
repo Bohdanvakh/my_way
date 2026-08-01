@@ -7,7 +7,7 @@ export class ActivityService {
     constructor(private prisma: PrismaService) {}
 
     // Queries
-    findAll() {
-    
+    async findAll() {
+        return await this.prisma.activity.findMany();
     }
 }

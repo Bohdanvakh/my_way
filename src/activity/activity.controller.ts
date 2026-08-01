@@ -1,10 +1,13 @@
 import { Controller, Get, Post, Patch, Delete } from "@nestjs/common";
-import { Prisma } from "@prisma/client";
-import { PrismaService } from "src/prisma/prisma.service";
+import { ActivityService } from "./activity.service";
 
 @Controller('activity')
 export class ActivityController {
-    constructor(private prisma: PrismaService) {}
+    constructor(private readonly activityService: ActivityService) {}
 
     // Functions
+    @Get()
+    async findAll() {
+        return await this.activityService.findAll();
+    }
 }
