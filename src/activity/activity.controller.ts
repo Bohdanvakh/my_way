@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Patch, Delete } from "@nestjs/common";
+import { Controller, Get, Post, Patch, Delete, Body } from "@nestjs/common";
 import { ActivityService } from "./activity.service";
+import { CreateActivityDto } from "./dto/create-activity.dto";
 
 @Controller('activity')
 export class ActivityController {
@@ -9,5 +10,10 @@ export class ActivityController {
     @Get()
     async findAll() {
         return await this.activityService.findAll();
+    }
+
+    @Post()
+    create(@Body() createActivityDto: CreateActivityDto) {
+        return this.activityService.create(createActivityDto);
     }
 }
